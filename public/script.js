@@ -18,7 +18,6 @@ Blockly.JavaScript['say_hello'] = function(block) {
   return "console.log('Hello!');\n";
 };
 
-console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
 console.log("Generator function:", Blockly.JavaScript['say_hello']);
 
 
@@ -30,6 +29,7 @@ const workspace = Blockly.inject('blocklyDiv', {
   document.getElementById("runButton").addEventListener("click", async () => {
   console.log("test");
   console.log("Registered generators:", Object.keys(Blockly.JavaScript));
+  console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
   try {
     const code = Blockly.JavaScript.workspaceToCode(workspace);
   } catch (e) {
