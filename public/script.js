@@ -25,11 +25,12 @@ console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(wor
   console.log("test");
   console.log("Registered generators:", Object.keys(Blockly.JavaScript));
   console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
+  let code = ""
   try {
     const block = workspace.getTopBlocks()[0];
     const code1 = Blockly.JavaScript[block.type](block);
     console.log("Code from single block generator:", code1);
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
+    code = Blockly.JavaScript.workspaceToCode(workspace);
   } catch (e) {
     console.log(e);
   }
