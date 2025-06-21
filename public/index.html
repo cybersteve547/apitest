@@ -24,23 +24,21 @@
   <button onclick="runCode()">Run Code</button>
 
   <script>
+    console.log = (...args) => {
+      const output = args.join(" ");
+      const consoleDiv = document.getElementById("console");
+      consoleDiv.innerHTML += output + "<br>";
+      consoleDiv.scrollTop = consoleDiv.scrollHeight;
+    };
+
     const workspace = Blockly.inject('blocklyDiv', {
       toolbox: document.getElementById('toolbox'),
     });
 
     async function runCode() {
+      console.log("test");
       const code = Blockly.JavaScript.workspaceToCode(workspace);
       console.log('Generated code:', code);
-
-      const log = (...args) => {
-        const output = args.join(' ');
-        const consoleDiv = document.getElementById('console');
-        consoleDiv.innerHTML += output + '<br>';
-        consoleDiv.scrollTop = consoleDiv.scrollHeight;
-      };
-
-      console.log = log;
-      console.log("test");
 
       const response = await fetch('/api/run', {
         method: 'POST',
