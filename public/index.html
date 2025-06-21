@@ -37,11 +37,7 @@
 
     async function runCode() {
       console.log("test");
-      try {
-        const code = Blockly.JavaScript.workspaceToCode(workspace);
-      } catch (e) {
-        console.log(e);
-      }
+      const code = Blockly.JavaScript.workspaceToCode(workspace);
       console.log('Generated code:', code);
 
       const response = await fetch('/api/run', {
@@ -50,7 +46,7 @@
         body: JSON.stringify({ code }),
       });
 
-      const result = await response.json();
+      const result = await response.text();
       console.log(result);
       try {
         eval(result);

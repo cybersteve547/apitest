@@ -8,5 +8,5 @@ Blockly.Blocks['say_hello'] = {
 };
 
 Blockly.JavaScript['say_hello'] = function(block) {
-  return "console.log('Hello!');";
+  return "console.log('Hello!');\n";
 };
