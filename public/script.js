@@ -27,6 +27,10 @@ const workspace = Blockly.inject('blocklyDiv', {
 });
 
   document.getElementById("runButton").addEventListener("click", async () => {
+  console.log("Workspace count of top blocks:", workspace.getTopBlocks().length);
+  workspace.getTopBlocks().forEach((b, i) => {
+    console.log(`Block #${i} type:`, b.type);
+  });
   console.log("test");
   console.log("Registered generators:", Object.keys(Blockly.JavaScript));
   console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
