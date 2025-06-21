@@ -7,9 +7,6 @@ console.log = (...args) => {
 
 let workspace;
 
-console.log("Blockly.JavaScript:", Blockly.JavaScript);
-
-
 window.addEventListener("DOMContentLoaded", () => {
 workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
