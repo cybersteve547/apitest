@@ -6,7 +6,3 @@ Blockly.Blocks['say_hello'] = {
     this.setColour(160);
   }
 };
-
-Blockly.JavaScript['say_hello'] = function(block) {
-  return "console.log('Hello!');\n";
-};

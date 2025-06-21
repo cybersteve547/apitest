@@ -5,6 +5,10 @@ console.log = (...args) => {
   consoleDiv.scrollTop = consoleDiv.scrollHeight;
 };
 
+Blockly.JavaScript['say_hello'] = function(block) {
+  return "console.log('Hello!');\n";
+};
+
 const workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
 });
