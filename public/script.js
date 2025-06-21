@@ -18,6 +18,10 @@ Blockly.JavaScript['say_hello'] = function(block) {
   return "console.log('Hello!');\n";
 };
 
+console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
+console.log("Generator function:", Blockly.JavaScript['say_hello']);
+
+
 window.addEventListener("DOMContentLoaded", () => {
 const workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
