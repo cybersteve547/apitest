@@ -32,18 +32,20 @@
       const code = Blockly.JavaScript.workspaceToCode(workspace);
       console.log('Generated code:', code);
 
-      const response = await fetch('/api/run', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code }),
-      });
-
-      console.log = (...args) => {
+      const log = (...args) => {
         const output = args.join(' ');
         const consoleDiv = document.getElementById('console');
         consoleDiv.innerHTML += output + '<br>';
         consoleDiv.scrollTop = consoleDiv.scrollHeight;
       };
+
+      console.log = log;
+
+      const response = await fetch('/api/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
 
       const result = await response.json();
       eval(result);
