@@ -25,6 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
 const workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
 });
+console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
 
   document.getElementById("runButton").addEventListener("click", async () => {
   console.log("Workspace count of top blocks:", workspace.getTopBlocks().length);
