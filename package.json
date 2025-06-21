@@ -1,5 +1,5 @@
 {
-  "name": "my-node-api",
+  "name": "blockly-on-render",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

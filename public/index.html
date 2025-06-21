@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Blockly on Render</title>
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+</head>
+<body>
+  <h1>Blockly on Render</h1>
+
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+  <xml id="toolbox" style="display: none">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="text"></block>
+    <block type="text_print"></block>
+  </xml>
+
+  <button onclick="runCode()">Run Code</button>
+
+  <script>
+    const workspace = Blockly.inject('blocklyDiv', {
+      toolbox: document.getElementById('toolbox'),
+    });
+
+    async function runCode() {
+      const code = Blockly.JavaScript.workspaceToCode(workspace);
+      console.log('Generated code:', code);
+
+      const response = await fetch('/api/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+
+      const result = await response.json();
+      eval(result);
+      alert('Backend says: ' + result.output);
+    }
+  </script>
+</body>
+</html>
