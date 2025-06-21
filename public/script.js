@@ -5,6 +5,8 @@ console.log = (...args) => {
   consoleDiv.scrollTop = consoleDiv.scrollHeight;
 };
 
+let workspace;
+
 Blockly.Blocks['say_hello'] = {
   init: function() {
     this.appendDummyInput().appendField("say hello");
@@ -19,10 +21,11 @@ Blockly.JavaScript['say_hello'] = function(block) {
 };
 
 console.log("Generator function:", Blockly.JavaScript['say_hello']);
+console.log("Blockly.JavaScript:", Blockly.JavaScript);
 
 
 window.addEventListener("DOMContentLoaded", () => {
-const workspace = Blockly.inject('blocklyDiv', {
+workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
 });
 console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace)));
