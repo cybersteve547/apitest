@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Blockly on Render</title>
-  <script src="blockly/blockly_compressed.js"></script>
-  <script src="blockly/blocks.js"></script>
-  <script src="blockly/javascript_compressed.js"></script>
-  <script src="blockly/msg/en.js"></script>
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <h1>Blockly on Render</h1>
-
-  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
-  <div id="console" style="background: #111; color: #0f0; padding: 1em; font-family: monospace; height: 200px; overflow-y: auto;">
-    <b>Console:</b><br>
-  </div>
-
-
-  <xml id="toolbox" style="display: none">
-    <block type="say_hello"></block>
-  </xml>
-
-  <button id="runButton">Run Code</button>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Blockly Test</title>
+    <script src="blockly/blockly_compressed.js"></script>
+    <script src="blockly/blocks.js"></script> <!-- your custom blocks -->
+    <script src="blockly/javascript_compressed.js"></script>
+    <script src="blockly/msg/en.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <h1>Blockly Test</h1>
+    <div id="blocklyDiv" style="height: 300px; width: 600px;"></div>
+    <xml id="toolbox" style="display: none">
+      <block type="say_hello"></block>
+    </xml>
+    <button id="runButton">Run</button>
+    <div id="console" style="background:black; color:lime; padding:1em;"></div>
+  </body>
 </html>
