@@ -30,6 +30,7 @@ console.log('Current XML:', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(wor
   } catch (e) {
     console.log(e);
   }
+  console.log('Generated code:', typeof code, code);
   console.log('Generated code:', code);
 
   const response = await fetch('/api/run', {
