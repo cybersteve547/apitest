@@ -7,7 +7,6 @@ console.log = (...args) => {
 
 let workspace;
 
-console.log("Generator function:", Blockly.JavaScript['say_hello']);
 console.log("Blockly.JavaScript:", Blockly.JavaScript);
 
 
