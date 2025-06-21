@@ -49,8 +49,12 @@
       });
 
       const result = await response.json();
-      console.log(eval);
-      eval(result);
+      console.log(result);
+      try {
+        eval(result);
+      } catch (e) {
+        console.log(e);
+      }
       alert('Backend says: ' + result.output);
     }
   </script>
