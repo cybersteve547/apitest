@@ -18,12 +18,14 @@ Blockly.JavaScript['say_hello'] = function(block) {
   return "console.log('Hello!');\n";
 };
 
+window.addEventListener("DOMContentLoaded", () => {
 const workspace = Blockly.inject('blocklyDiv', {
   toolbox: document.getElementById('toolbox'),
 });
 
-async function runCode() {
+  document.getElementById("runButton").addEventListener("click", async () => {
   console.log("test");
+  console.log("Registered generators:", Object.keys(Blockly.JavaScript));
   try {
     const code = Blockly.JavaScript.workspaceToCode(workspace);
   } catch (e) {
@@ -45,4 +47,5 @@ async function runCode() {
     console.log(e);
   }
   alert('Backend says: ' + result.output);
-}
+});
+});
