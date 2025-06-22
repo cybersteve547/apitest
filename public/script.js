@@ -6,12 +6,6 @@ console.log = (...args) => {
   consoleDiv.scrollTop = consoleDiv.scrollHeight;
 };
 
-// Define generator AFTER everything loaded
-Blockly.JavaScript['say_hello'] = function(block) {
-  return "console.log('Hello!');\n";
-};
-console.log("say_hello generator from script.js:", Blockly.JavaScript['say_hello']);
-
 // Inject Blockly
 window.addEventListener("DOMContentLoaded", () => {
   const workspace = Blockly.inject('blocklyDiv', {
