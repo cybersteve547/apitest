@@ -6,18 +6,22 @@ console.log = (...args) => {
   consoleDiv.scrollTop = consoleDiv.scrollHeight;
 };
 
-// Inject Blockly
-window.addEventListener("DOMContentLoaded", () => {
-  var workspace = Blockly.inject('blocklyDiv',
-      {toolbox: document.getElementById('toolbox')});
-
-  document.getElementById("runButton").addEventListener("click", () => {
-    const code = javascript.javascriptGenerator.workspaceToCode(workspace);
-    console.log("Generated code:", code);
-    try {
-      eval(code);
-    } catch (e) {
-      console.log("Eval error:", e);
+const toolbox = {
+  // There are two kinds of toolboxes. The simpler one is a flyout toolbox.
+  kind: 'flyoutToolbox',
+  // The contents is the blocks and other items that exist in your toolbox.
+  contents: [
+    {
+      kind: 'block',
+      type: 'controls_if'
+    },
+    {
+      kind: 'block',
+      type: 'controls_whileUntil'
     }
-  });
-});
+    // You can add more blocks to this array.
+  ]
+};
+
+// The toolbox gets passed to the configuration options during injection.
+const workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});

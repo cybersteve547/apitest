@@ -10,3 +10,10 @@ const my_block = {
   }
 };
 Blockly.common.defineBlocks({my_block: my_block});
+
+javascript.javascriptGenerator.forBlock['my_block'] = function() {
+
+  // TODO: Assemble javascript into the code variable.
+  const code = "console.log('Hi!');\n";
+  return code;
+}
