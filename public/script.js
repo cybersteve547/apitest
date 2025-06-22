@@ -8,8 +8,8 @@ console.log = (...args) => {
 
 // Inject Blockly
 window.addEventListener("DOMContentLoaded", () => {
-  const workspace = Blockly.inject(
-    document.getElementById('blocklyDiv'), { /* config */ });
+  var workspace = Blockly.inject('blocklyDiv',
+      {toolbox: document.getElementById('toolbox')});
 
   document.getElementById("runButton").addEventListener("click", () => {
     const code = javascript.javascriptGenerator.workspaceToCode(workspace);
