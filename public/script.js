@@ -1,10 +1,3 @@
-// Custom console output
-console.log = (...args) => {
-  const output = args.join(" ");
-  const consoleDiv = document.getElementById("console");
-  consoleDiv.innerHTML += output + "<br>";
-  consoleDiv.scrollTop = consoleDiv.scrollHeight;
-};
 
 const toolbox = {
   // There are two kinds of toolboxes. The simpler one is a flyout toolbox.
@@ -23,5 +16,6 @@ const toolbox = {
   ]
 };
 
-// The toolbox gets passed to the configuration options during injection.
-const workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+// Passes the injection div.
+const workspace = Blockly.inject(
+    document.getElementById('blocklyDiv'), {toolbox:toolbox});

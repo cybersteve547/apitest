@@ -1,0 +1,25 @@
+https://pixbitcode.com
+    /editor
+    /users
+        /[username]
+    /projects
+        /categories
+            /games
+            /animations
+            /art
+            /music
+            /stories
+            /tutorials
+            /utilities
+        /featured
+        /id
+            /[id]
+    /search
+    /forums
+    /news
+        /search
+        /post
+            /[id]
+    /api
+    /about
+        /faq
