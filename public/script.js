@@ -21,9 +21,13 @@ const workspace = Blockly.inject(
     document.getElementById('blocklyDiv'), {toolbox:toolbox});
 
 javascriptGenerator.addReservedWords('code');
+alert("1");
 
 function runCode() {
+  alert("2");
   var code = javascriptGenerator.workspaceToCode(workspace);
+  alert("3");
+  alert(code);
   try {
     eval(code);
   } catch (e) {
