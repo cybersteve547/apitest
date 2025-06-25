@@ -19,3 +19,14 @@ const toolbox = {
 // Passes the injection div.
 const workspace = Blockly.inject(
     document.getElementById('blocklyDiv'), {toolbox:toolbox});
+
+javascriptGenerator.addReservedWords('code');
+
+function runCode() {
+  var code = javascriptGenerator.workspaceToCode(workspace);
+  try {
+    eval(code);
+  } catch (e) {
+    alert(e);
+  }
+}
