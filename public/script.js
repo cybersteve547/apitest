@@ -2,6 +2,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 ctx.fillStyle = "black";
+import {javascriptGenerator} from 'blockly/javascript';
 
 const toolbox = {
   // There are two kinds of toolboxes. The simpler one is a flyout toolbox.
